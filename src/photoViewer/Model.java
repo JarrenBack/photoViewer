@@ -10,13 +10,14 @@ public class Model {
 	
 	public Model () {
 		photos = sop.deserialize("src/photoViewer/photos.ser");
-		
 	}
+	
 	public void addPhoto (int index, String pathOfPhoto) {
 		Photo newPic = new Photo ("Description goes here", "Date goes here", pathOfPhoto);
 		photos.add(index, newPic);
 		sop.serialize(photos, "src/photoViewer/photos.ser");
 	}
+	
 	public boolean deletePhoto(int numPicToDelete) {
 		if (numPicToDelete < 0 || photos.isEmpty())
 			return false;
@@ -34,6 +35,7 @@ public class Model {
 		sop.serialize(photos, "src/photoViewer/photos.ser");
 		
 	}
+	
 	public int getNumPhotos() {
 		return photos.size();
 	}
@@ -56,5 +58,4 @@ public class Model {
 			return null;
 		return photos.get(index).getImageIcon();
 	}
-	
 }
